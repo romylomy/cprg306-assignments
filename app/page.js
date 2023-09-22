@@ -18,21 +18,26 @@ const links = [
 ]
 
 const linkElement =  links.map(link=>(
-  <Link href={`/${link.folder}`} className=' text-center w-2/4 text-xs py-1  px-2 border-2 border-slate-700 rounded-md hover:bg-emerald-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-600 '> 
+  <Link href={`/${link.folder}`} className=' text-center w-2/4 text-xs py-1  px-2 border-2 border-slate-700 rounded-md hover:bg-green-700 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-600 '> 
   {link.name} </Link>
 
 ))
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen justify-around align-center p-24 '>
+    <main className=' grid justify-center md:order-last lg:grid-cols-2  min-h-screen  align-center p-24 sm:grid-cols-1  '>
+
+          <div className=''>
+                  <Lottie  animationData={animationData}/>
+          </div>
+              
           <div 
-            className='font-libre text-sm '>
+            className='font-libre text-sm md:order-last '>
 
             <motion.h1 
              initial={{  xl:-300,opacity: 0, scale: 0.5 }}
              animate={{  x:0, opacity: 1, scale: 1 }}
-            className='text-balance text-lime-800 text-4xl font-bold mb-5 '>
+            className='text-balance text-green-700 text-4xl font-bold mb-5 '>
 
             CPRG 306:<br/>Web Development 2 <br/> -Assignments
 
@@ -54,9 +59,7 @@ export default function Home() {
             
 
           </div>
-          <div className=' md:w-1/2 lg:w-1/2 xl:w-1/2' >
-              <Lottie loop={false}  animationData={animationData}/>
-          </div>
+          
     </main>
   )
 }
