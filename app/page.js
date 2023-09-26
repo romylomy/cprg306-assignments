@@ -14,7 +14,7 @@ const links = [
   {
     folder:'week3',
     name:'Week 3'
-  }
+  },
 ]
 
 const linkElement =  links.map(link=>(
