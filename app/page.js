@@ -8,12 +8,12 @@ import animationData from '@/app/animationData.json'
 
 const links = [
   {
-    folder:'week2',
-    name:'Week 2'
-  },
-  {
     folder:'week3',
     name:'Week 3'
+  },
+  {
+    folder:'week4',
+    name:'Week 4'
   },
 ]
 

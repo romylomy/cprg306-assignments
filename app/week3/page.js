@@ -1,5 +1,4 @@
 import React from 'react';
-import {HiOutlineClipboardList} from 'react-icons/Hi'
 import ItemList from './ItemList';
 import Item from './Item'; // Update the import for 'Item' with the correct filename (case-sensitive).
 
@@ -10,7 +9,6 @@ export default function Page() { // Use PascalCase for the component name.
       <div className="p-10  ">
         <div className=' p-4 shadow-lg rounded-lg my-10 flex align-center justify-center  '>
              <p className='font-bebas text-3xl lg:text-5xl py-4 text-bold'>{`${ItemList.length} items`}</p>
-              <HiOutlineClipboardList size={70}/>
 
         </div>
 
