@@ -5,7 +5,7 @@ import Item from './Item'; // Update the import for 'Item' with the correct file
 export default function Page() { // Use PascalCase for the component name.
 
   return (
-    <section className=' bg-slate-100 p-5 md:px-10 lg:px-60'>
+    <main className=' bg-slate-100 p-5 md:px-10 lg:px-60'>
       <div className="p-10  ">
         <div className=' p-4 shadow-lg rounded-lg my-10 flex align-center justify-center  '>
              <p className='font-bebas text-3xl lg:text-5xl py-4 text-bold'>{`${ItemList.length} items`}</p>
@@ -98,6 +98,6 @@ export default function Page() { // Use PascalCase for the component name.
 
         </div>
       </div>
-    </section>
+    </main>
   );
 }

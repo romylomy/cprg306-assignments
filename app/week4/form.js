@@ -26,18 +26,24 @@ export default function Form() {
 
     function handleChange(event){
         const {value, name, type, checked } = event.target
-        setFormData(prevFormData => {
-            return {
-                prevFormData, 
+        setFormData((prevFormData) => ({
+             
+                ...prevFormData, 
                     [name]: type =="checkbox" ? checked : value
                        
-            }
-        })
+            
+        }))
+    }
+
+    function handleSubmit(event){
+        event.preventDefault();
+        window.alert(`Added item:${formData.name}, quantity:${formData.amount}, category:${formData.category}`); 
+        
     }
  
     
   return (
-        <form className='  h-1/3 p-2 grid grid-cols-1 gap-4 rounded-md '>
+        <form onSubmit={handleSubmit} className='  h-1/3 p-2 grid grid-cols-1 gap-4 rounded-md '>
             <input
                 className="font-light border-2 rounded-lg p-2 w-full"
                 type="text"
@@ -55,7 +61,8 @@ export default function Form() {
                             className=' font-light border-2 bg-opacity-30 rounded-lg p-1'
                             type="number"
                             name='amount'
-                            placeholder='item name'
+                            min={1}
+                            max={100}
                             required={true}
                             value={formData.amount}
                             onChange={handleChange}
@@ -69,13 +76,22 @@ export default function Form() {
                 <div>
                     <label className=" font-semibold  text-slate-700 grid grid-cols-1 w-full'" >
                         Category:
-                        <select className=" font-light border-2 rounded-lg p-1" value={formData.category} onChange={handleChange}>
-                            <option disabled >category</option>
-                            {   
-                                categoryList.map((category, index)=>(
-                                    <option name={category} value={category}>{category}</option>
-                                ))
-                            }
+                        <select 
+                            onChange={handleChange} 
+                            value={formData.category}
+                            className=" font-light border-2 rounded-lg p-1"
+                            name="category"
+                                >
+                                <option disabled>Select category</option>
+                                {   
+                                    categoryList.map((category, index)=>(
+                                        <option key={index} 
+                                                name={category} 
+                                                value={category}
+                                                >{category}
+                                        </option>
+                                        ))
+                                }
 
                         </select>
 
@@ -87,7 +103,7 @@ export default function Form() {
             </div>
             <div className=' pt-8 flex justify-end text-center'>
                 <button className='backdrop-blur-md font-bold shadow-sm shadow-orange-700 rounded-lg p-4 bg-orange-400 text-orange-700 flex justify-end'>
-                    <h1>Add</h1>
+                    Add
                 
                 </button>
             </div>

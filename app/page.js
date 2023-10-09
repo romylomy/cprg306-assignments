@@ -38,7 +38,7 @@ export default function Home() {
           animate={{ x: 0, opacity: 1, scale: 1 }}
           className=' text-balance text-green-700 text-4xl font-bold mb-5 lg:text-6xl'>
   
-          CPRG 306:<br />Web Development 2-Assignments
+          CPRG 306:<br />Web Development 2 <br/> Assignments
   
         </motion.h1>
   
@@ -58,7 +58,7 @@ export default function Home() {
        
   
       </div>
-      <div className='backdrop-blur-md overflow-hidden rounded-t-full w-screen min-h-screen bg-green-300 bg-opacity-40 p-40  shadow-lg z-[0] absolute top-1/3 lg:top-1/4 left-1/2 transform -translate-x-1/2 md:rounded-t-full  '>
+      <div className='backdrop-blur-md overflow-hidden rounded-t-full w-screen min-h-screen bg-slate-50 bg-opacity-20 p-40  shadow-lg z-[0] absolute top-1/3 lg:top-1/4 left-1/2 transform -translate-x-1/2 md:rounded-t-full  '>
           {/* Content inside the last div */}
         </div>
   
