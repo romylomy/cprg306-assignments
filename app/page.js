@@ -25,7 +25,7 @@ const linkElement =  links.map(link=>(
 
 export default function Home() {
   return (
-    <main className=' bg-slate-50 bg-opacity-90 text-slate-50 flex lg:flex-cols items-center justify-center h-screen  '>
+    <main className=' bg-slate-50 lg:bg-slate-50 text-slate-50 flex lg:flex-cols items-center justify-center h-screen  '>
   
 
       
@@ -50,17 +50,23 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.9 }}
               className='mx-10 md:mx-20 '>
-              <div className=" p-5   grid lg:flex lg:justify-around lg:items-center   ">
+              <div className=" py-5   grid lg:flex lg:justify-around lg:items-center   ">
                   <h1
-                      className='p-2 lg:text-center  text-blue-700 opacity-50 text-balance  bg-opacity-70  shadow-orange-700  text-2xl font-bold mb-5 lg:text-4xl'>
+                      className='lg:text-center font-OpenSans rounded-lg  text-blue-700 lg:bg-none  text-balance  bg-opacity-70  shadow-orange-700  text-4xl font-bold mb-5 lg:text-4xl'>
               
-                      CPRG 306:<br />Web Development 2 <br/> Assignments
+                      CPRG 306:<br />
+              
+                </h1>
+                <h1
+                      className='lg:text-center font-OpenSans rounded-lg  text-blue-800 lg:bg-none  text-balance  bg-opacity-70  shadow-orange-700  text-3xl font-bold mb-5 lg:text-4xl'>
+              
+                       Web Development 2 <br/> Assignments
               
                 </h1>
                 <StudentInfo />
                 
               </div>
-              <div className='pl-5 grid grid-cols-1 items-center gap-1 lg:flex lg:justify-between '>
+              <div className=' grid grid-cols-1 items-center gap-1 lg:flex lg:justify-between '>
                   
                   {linkElement}
               </div>
