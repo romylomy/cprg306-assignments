@@ -18,49 +18,65 @@ const links = [
 ]
 
 const linkElement =  links.map(link=>(
-  <Link href={`/${link.folder}`} className=' z-[2] w-full text-xs py-1  px-2 border-2 border-slate-700 rounded-md hover:bg-green-700 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-600 '> 
+  <Link href={`/${link.folder}`} className=' text-center w-1/2 z-[2] p-5 shadow-xl text-sm lg:text-lg py-1 bg-slate-700 bg-opacity-80  px-2 border-2 border-slate-700 border-opacity-50 rounded-md  hover:bg-slate-300 active:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-700 '> 
   {link.name} </Link>
 
 ))
 
 export default function Home() {
   return (
-    <main className='text-center px-4 grid grid-cols-1 min-h-screen justify-center md:order-last lg:grid-cols-2 align-center md:p-24'>
+    <main className='bg-slate-100 bg-opacity-90 text-slate-50 flex lg:flex-cols items-center justify-center h-screen  '>
   
-      <div className='z-[2] px-10'>
-        <Lottie animationData={animationData} />
-      </div>
-  
-      <div className='z-[3] font-libre text-sm md:order-last'>
-  
-        <motion.h1
-          initial={{ xl: -300, opacity: 0, scale: 0.5 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          className=' text-balance text-green-700 text-4xl font-bold mb-5 lg:text-6xl'>
-  
-          CPRG 306:<br />Web Development 2 <br/> Assignments
-  
-        </motion.h1>
-  
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          className='items-center mx-10 md:mx-20 '>
-          <div className="flex flex-col column-1">
-            <StudentInfo />
-            <div className='z-[1] flex flex-col gap-1 column-1 '>
-              {linkElement}
-            </div>
+
+      
+        
+      
+        <div className='grid grid-cols-1 justify-between w-full '>
+          <div>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0 }}>
+
+              <Lottie className=' px-30 lg:px-80' animationData={animationData}/>
+
+
+            </motion.div>
+              
+             
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9 }}
+              className=' mx-10 md:mx-20 '>
+              <div className=" p-5 bg-slate-300 backdrop-blur-md rounded-lg border-2 shadow-lg grid lg:flex lg:justify-around lg:items-center   ">
+                  <h1
+                      className='p-2 lg:text-center  rounded-lg text-blue-700 opacity-50 text-balance  bg-opacity-70  shadow-orange-700  text-xl font-bold mb-5 lg:text-4xl'>
+              
+                      CPRG 306:<br />Web Development 2 <br/> Assignments
+              
+                </h1>
+                <StudentInfo />
+                
+              </div>
+              <div className='py-10 grid grid-cols-1 items-center gap-1 lg:flex lg:justify-between '>
+                  
+                  {linkElement}
+              </div>
+          </motion.div>
+          
+              
+      
+
           </div>
-        </motion.div>
-  
-       
-  
-      </div>
-      <div className='backdrop-blur-md overflow-hidden rounded-t-full w-screen min-h-screen bg-slate-50 bg-opacity-20 p-40  shadow-lg z-[0] absolute top-1/3 lg:top-1/4 left-1/2 transform -translate-x-1/2 md:rounded-t-full  '>
-          {/* Content inside the last div */}
+          
+          
+          
         </div>
+
+     
+    
   
     </main>
   )

@@ -9,10 +9,3 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-
-main{
-  background-color: #74BE7C;
-  background-image: url("../public/backgroundGradient.png");
-  background-attachment: fixed;
-  background-size: cover;
-}
