@@ -25,7 +25,7 @@ const linkElement =  links.map(link=>(
 
 export default function Home() {
   return (
-    <main className='bg-slate-100 bg-opacity-90 text-slate-50 flex lg:flex-cols items-center justify-center h-screen  '>
+    <main className=' bg-slate-50 bg-opacity-90 text-slate-50 flex lg:flex-cols items-center justify-center h-screen  '>
   
 
       
@@ -39,8 +39,8 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.0 }}>
 
-              <Lottie className=' px-30 lg:px-80' animationData={animationData}/>
-
+              <Lottie className='shadow-inner bg-slate-300 px-30 lg:px-80' animationData={animationData}/>
+ 
 
             </motion.div>
               
@@ -49,10 +49,10 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.9 }}
-              className=' mx-10 md:mx-20 '>
-              <div className=" p-5 bg-slate-300 backdrop-blur-md rounded-lg border-2 shadow-lg grid lg:flex lg:justify-around lg:items-center   ">
+              className='mx-10 md:mx-20 '>
+              <div className=" p-5   grid lg:flex lg:justify-around lg:items-center   ">
                   <h1
-                      className='p-2 lg:text-center  rounded-lg text-blue-700 opacity-50 text-balance  bg-opacity-70  shadow-orange-700  text-xl font-bold mb-5 lg:text-4xl'>
+                      className='p-2 lg:text-center  text-blue-700 opacity-50 text-balance  bg-opacity-70  shadow-orange-700  text-2xl font-bold mb-5 lg:text-4xl'>
               
                       CPRG 306:<br />Web Development 2 <br/> Assignments
               
@@ -60,7 +60,7 @@ export default function Home() {
                 <StudentInfo />
                 
               </div>
-              <div className='py-10 grid grid-cols-1 items-center gap-1 lg:flex lg:justify-between '>
+              <div className='pl-5 grid grid-cols-1 items-center gap-1 lg:flex lg:justify-between '>
                   
                   {linkElement}
               </div>
