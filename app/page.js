@@ -15,6 +15,10 @@ const links = [
     folder:'week4',
     name:'Week 4'
   },
+  {
+    folder:'week5',
+    name:'Week 5'
+  }
 ]
 
 const linkElement =  links.map(link=>(
@@ -52,7 +56,7 @@ export default function Home() {
               className='mx-10 md:mx-20 '>
               <div className=" py-5   grid lg:flex lg:justify-around lg:items-center   ">
                   <h1
-                      className='lg:text-center font-OpenSans rounded-lg  text-blue-700 lg:bg-none  text-balance  bg-opacity-70  shadow-orange-700  text-4xl font-bold mb-5 lg:text-4xl'>
+                      className='lg:text-center font-OpenSans rounded-lg  text-blue-700 lg:bg-none  text-balance  bg-opacity-70  shadow-orange-700  text-4xl font-bold mb-5 lg:text-5xl'>
               
                       CPRG 306:<br />
               
