@@ -1,13 +1,15 @@
 "use client"
-import React, { useState } from 'react';
-import ItemList from './ItemList'; 
+
+import React, { useState, useEffect } from 'react';
 import Item from './Item'; 
 import { cn } from '@/lib/utils'
+import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Page() { 
+export default function List({list}) { 
 
   const [sortBy, setSortBy] = useState("name");
   const [buttonClick, setButtonClick] = useState(1);
+  const [key, setKey] = useState(0);
 
   function CategorySort(){
       setSortBy("category")
@@ -19,11 +21,17 @@ export default function Page() {
     setButtonClick(() => setButtonClick(1))
   }
 
+  useEffect(() => {
+    setKey((prevKey) => prevKey + 1);
+  }, [sortBy]);
+
   
-  const sortedItemList = ItemList.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  const sortedItemList = list.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  const isSortingByCategory = sortBy === "category";
+
 
   return (
-    <main className=' bg-slate-100 p-5 md:px-10 lg:px-60'>
+    <main className=' py-10 lg:px-60 '>
       <div className="flex justify-center gap-x-2">
         <button onClick={NameSort} variant="outline"  className={ cn(
             "flex items-center gap-x-2 text-slate-500 px-2 text-lg font-[500] transition-all hover:text-slate-600 rounded-full hover:bg-slate-300/20 ",
@@ -38,16 +46,25 @@ export default function Page() {
           Category
         </button>
 
-      </div>
+    </div>
      
       <div className="p-10 ">
-        
-          <div className='grid grid-cols-1 gap-4'>
+       <AnimatePresence initial={false} animate={false} custom={key}>
+          <motion.div
+            initial={(isSortingByCategory && buttonClick == 2) ? { opacity: 1, x: 300 } : { opacity: 0, x: -300 }}
+            animate={(isSortingByCategory && buttonClick == 2) ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
+            key={key} 
+            className='grid grid-cols-1 gap-4'
+          >
             {sortedItemList.map((item, index) => (
-              <Item key={item.id} {...item} />
+              <Item key={item.id} {...item} sortBy={sortBy} />
             ))}
-          </div>
-        </div>
+
+          </motion.div>
+        </AnimatePresence>
+     </div>
+     
+          
      
     </main>
   );
