@@ -3,7 +3,7 @@ import StudentInfo from './StudentInfo'
 import Link from 'next/link'
 import { motion} from 'framer-motion'
 import Lottie from 'lottie-react'
-import animationData from '@/app/animationData.json'
+import animationData from 'app/animationData.json'
 
 
 const links = [
@@ -22,6 +22,14 @@ const links = [
   {
     folder:'week6',
     name:'Week 6'
+  },
+  {
+    folder:'week7',
+    name:'Week 7'
+  },
+  {
+    folder:'week8',
+    name:'Week 8'
   }
 ]
 

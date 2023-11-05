@@ -37,6 +37,13 @@ export default function Page() {
 
         setList(prevlist => [newItem,...prevlist ])
 
+        setFormData({
+          name: '',
+          quantity: 1,
+          category: 'Produce',
+        })
+      
+
 
 
         event.preventDefault();
