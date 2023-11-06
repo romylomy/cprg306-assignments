@@ -7,7 +7,7 @@ export default function MealIdeas({ mealList, ingredient }) {
     console.log(mealList);
   
     return (
-      <div className='  text-center md:text-left md:p-10 md:w-1/2   '>
+      <div className='  md:p-10 md:w-1/2   '>
         <h1 className='text-3xl'>Meal ideas</h1>
   
         {ingredient == null ? (
@@ -17,9 +17,9 @@ export default function MealIdeas({ mealList, ingredient }) {
         ) : (
           <div>
             <h1 className='text-xl'>Here are some meal ideas for {ingredient}</h1>
-            <div className='py-4'>
+            <div className='py-4 space-y-2 grid grid-cols-1'>
                 {mealList.map(meal => (
-                <p className='font-semibold' key={meal.idMeal}>{meal.strMeal}</p>
+                <button className='font-semibold on hover:border-2 border-sky-700 rounded-lg' key={meal.idMeal}>{meal.strMeal}</button>
                 ))}
 
             </div>

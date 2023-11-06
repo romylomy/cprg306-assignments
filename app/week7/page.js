@@ -84,18 +84,17 @@ let data
   return (
 
     
-    <div >
-          <h1 className=' text-5xl text-center p-4'>Shopping List</h1>
-          <div className='grid md:grid-cols-2 md:px-10 shadow-lg rounded-lg'>
+    <div className='relative' >
+          <div className='z-[999] w-full fixed top-0 left-1/2 -translate-x-1/2 bg-slate-50 bg-opacity-30 backdrop-blur-md   grid md:grid-cols-2 md:px-10 '>
             <div className='flex flex-col items-center py-10'>
               <Form formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} />
 
             </div>
-            <MealIdeas  mealList={mealList} ingredient={ingredient} />
+            <MealIdeas className='order-1' mealList={mealList} ingredient={ingredient} />
 
 
           </div>
-          <div className='absolute mt-30'>
+          <div className='absolute mt-[500px]'>
             <List list={list} setIngredient={setIngredient} />
           </div>
        
