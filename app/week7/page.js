@@ -85,7 +85,7 @@ let data
 
     
     <div className='relative' >
-          <div className='z-[999] w-full fixed top-0 left-1/2 -translate-x-1/2 bg-slate-50 bg-opacity-30 backdrop-blur-md   grid md:grid-cols-2 md:px-10 '>
+          <div className='z-[999] w-full fixed top-0 left-1/2 -translate-x-1/2 bg-slate-50 bg-opacity-80 backdrop-blur-md   grid md:grid-cols-2 md:px-10 '>
             <div className='flex flex-col items-center py-10'>
               <Form formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} />
 
