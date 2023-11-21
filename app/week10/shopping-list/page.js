@@ -1,11 +1,11 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Form from 'app/week6/form.js';
-import ItemList from 'app/week5/ItemList.js';
 import List from './list';
 import MealIdeas from './meal-ideas';
 import { useUserAuth } from "../_utils/auth-context";
 import {addUserItem, getItems } from "../_services/shopping-list-services";
+import  { toast } from 'react-hot-toast';
 
 
 
@@ -48,14 +48,19 @@ export default function Page() {
   });
    
  useEffect(() => {
-  const fetchPosts = async () =>{
-    const items = await getItems(user.uid);
-    console.log( "this is the items" + items);
-    setList(items);
-    
-  }; 
-   fetchPosts(); 
- }, [])
+  const fetchPosts = async () => {
+    try {
+      const items = await getItems(user.uid);
+      console.log("These are the items", items);
+      setList(items);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+
+  fetchPosts();
+}, [mealList, user.uid]);
+
 
   
 
@@ -86,7 +91,7 @@ export default function Page() {
     });
 
     event.preventDefault();
-    window.alert(`Added item: ${formData.name}, quantity: ${formData.quantity}, category: ${formData.category}`);
+    toast.success(`Added item: ${formData.name}, quantity: ${formData.quantity}, category: ${formData.category}`);
   }
 
   return (
@@ -104,9 +109,6 @@ export default function Page() {
             <List list={list} setIngredient={setIngredient} />
         </div>
     
-
-
-
 
 </div>
   );

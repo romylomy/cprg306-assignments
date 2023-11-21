@@ -30,6 +30,10 @@ const links = [
   {
     folder:'week8',
     name:'Week 8'
+  },
+  {
+    folder:'week10',
+    name:'Week 10'
   }
 ]
 

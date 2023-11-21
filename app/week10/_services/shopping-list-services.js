@@ -6,26 +6,26 @@ export const getItems = async (userId) => {
   try {
     const q = query(
       collection(db, 'users', userId, 'items'),
-      where("quantity", ">=", 1)
+      where('quantity', '>=', 1)
     );
-
     const querySnapshot = await getDocs(q);
-
-    // Access the documents using the `docs` property
-    const mappedItems = querySnapshot.docs.map((doc) => ({
+    console.log(querySnapshot); 
+    
+    const items = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
 
-    return mappedItems;
+    return items;
   } catch (error) {
-    console.error("Error in getItems: ", error);
-    throw error; // Rethrow the error for further handling if needed
+    console.error('Error in getItems: ', error);
+    throw error; 
   }
 };
 
 
- const addUserItem = async (userId, newItem) =>{
+
+export const addUserItem = async (userId, newItem) =>{
   try{
     const userItemsCollectionRef = collection(db,"users", userId,"items" )
     const docRef = await addDoc(userItemsCollectionRef,{
@@ -37,6 +37,6 @@ export const getItems = async (userId) => {
   
  }
 
- export { addUserItem}
+
 
 
