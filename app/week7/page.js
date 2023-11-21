@@ -4,6 +4,7 @@ import Form from 'app/week6/form.js'
 import ItemList from 'app/week5/ItemList.js'
 import List from './list';
 import MealIdeas from './meal-ideas'
+import  { toast } from 'react-hot-toast';
 
 
 
@@ -76,7 +77,7 @@ let data
 
 
         event.preventDefault();
-        window.alert(`Added item:${formData.name}, quantity:${formData.quantity}, category:${formData.category}`); 
+        toast.success(`Added item: ${formData.name}\n quantity: ${formData.quantity}\n category: ${formData.category}`);
         
     }
  

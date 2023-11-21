@@ -91,7 +91,7 @@ export default function Page() {
     });
 
     event.preventDefault();
-    toast.success(`Added item: ${formData.name}, quantity: ${formData.quantity}, category: ${formData.category}`);
+    toast.success(`Added item: ${formData.name}\n quantity: ${formData.quantity}\n category: ${formData.category}`);
   }
 
   return (
