@@ -4,7 +4,7 @@ import Form from 'app/week6/form.js';
 import List from './list';
 import MealIdeas from './meal-ideas';
 import { useUserAuth } from "../_utils/auth-context";
-import {addUserItem, getItems } from "../_services/shopping-list-services";
+import {addUserItem, getItems,subscribeToItems } from "../_services/shopping-list-services";
 import  { toast } from 'react-hot-toast';
 
 
@@ -44,23 +44,47 @@ export default function Page() {
   name: '',
   quantity: 1,
   category: 'Produce',
-
   });
-   
- useEffect(() => {
-  const fetchPosts = async () => {
-    try {
-      const items = await getItems(user.uid);
-      console.log("These are the items", items);
-      setList(items);
-    } catch (error) {
-      console.error('Error fetching items:', error);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        console.log(user.uid);
+        const items = await getItems(user.uid);
+        const transformItems = items.map(item => ({
+          id: item.id,
+          category: item.newItem.category, 
+          name: item.newItem.name,
+          quantity: item.newItem.quantity,
+        }));
+  
+        console.log("These are the items", transformItems);
+        setList(transformItems); 
+    
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+      
     }
-  };
 
-  fetchPosts();
-}, [mealList, user.uid]);
+    const handleUpdate = (updatedItem) =>{
+      const newItem = updatedItem.map((item) =>({
+        id: item.id,
+        category: item.newItem.category, 
+        name: item.newItem.name,
+        quantity: item.newItem.quantity
+      }
+      ));
+      setList(newItem);
+    }
 
+    const unsubscribe = subscribeToItems(user.uid, handleUpdate); 
+    
+    fetchItems();
+
+    // Cleanup the listener when your component unmounts or as needed
+    return () => unsubscribe();
+  }, [mealList, user.uid]);
 
   
 

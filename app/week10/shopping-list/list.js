@@ -29,8 +29,29 @@ export default function List({list, setIngredient}) {
   let isSortingByCategory = false;
 
   // Check if list is not null and is an array before sorting
-  if (list !== null && list !== undefined ) {
-    sortedItemList = list.slice().sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  if (list !== null && list !== undefined) {
+    sortedItemList = list
+      .slice()
+      .sort((a, b) => {
+        const valueA = a[sortBy];
+        const valueB = b[sortBy];
+  
+        // Check if the properties are defined before using localeCompare
+        if (valueA !== undefined && valueB !== undefined) {
+          return valueA.localeCompare(valueB);
+        }
+  
+        // Handle the case where one or both values are undefined
+        // You might want to customize this part based on your use case
+        if (valueA === undefined && valueB !== undefined) {
+          return 1; // Move undefined values to the end
+        } else if (valueA !== undefined && valueB === undefined) {
+          return -1; // Move undefined values to the end
+        } else {
+          return 0; // Do nothing if both values are undefined
+        }
+      });
+  
     isSortingByCategory = sortBy === "category";
   }
 

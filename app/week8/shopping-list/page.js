@@ -32,6 +32,8 @@ export default function Page() {
         setMealList(data.meals);
         console.log(mealList);
         setFetchMeal(prev => !prev);
+        
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -47,6 +49,7 @@ export default function Page() {
   };
 
   const [list, setList] = useState(ItemList);
+ 
 
   function handleChange(event) {
     const { value, name, type, checked } = event.target;
